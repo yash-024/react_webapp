@@ -1,0 +1,10 @@
+.navbar,
+.login {
+    background: linear-gradient(59deg, #3A6073, #16222A) !important;
+}
+
+.nav-link,
+.navbar-brand,
+.login {
+    color: #fff !important;
+}

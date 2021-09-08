@@ -15,21 +15,16 @@ function App({ props }) {
   //when the app loads, we need to listen to the database and fetch new todos as they get Added/removed
   useEffect(() => {
     //this code here... firebase when the app.js loads
+    //setTodos(snapshot.docs.map((doc) => doc.data()));
     db.collection("todos")
       .orderBy("timestamp", "desc")
       .onSnapshot((snapshot) => {
-        setTodos(snapshot.docs.map((doc) => doc.data()));
+        //setTodos(snapshot.docs.map((doc) => doc.data()));
+        setTodos(
+          snapshot.docs.map((doc) => ({ id: doc.id, todo: doc.data() }))
+        );
       });
   }, []);
-
-  const onDelete = (todo) => {
-    // console.log("I am delete of todo", todo);
-    setTodos(
-      todos.filter((e) => {
-        return e !== todo;
-      })
-    );
-  };
 
   const addTodoData = (e) => {
     e.preventDefault();
@@ -43,7 +38,7 @@ function App({ props }) {
     setName("");
     setDesc("");
   };
-  console.log("todo === " + todos);
+  console.log("todo === " + todos.todo);
   return (
     <>
       {/* <ToastContainer /> */}
@@ -67,7 +62,7 @@ function App({ props }) {
                       onChange={(e) => setName(e.target.value)}
                     />
                   </div>
-                  <div className="form-group">
+                  <div className="form-group mt-2">
                     <label htmlFor="exampleInputPassword1"> Description </label>
                     <input
                       type="text"
@@ -95,9 +90,7 @@ function App({ props }) {
           <br />
         </div>
         <br />
-        {todos && todos.length > 0 && (
-          <Todos todos={todos} onDelete={onDelete} />
-        )}
+        {todos && todos.length > 0 && <Todos todos={todos} />}
       </div>
       <Footer />
     </>

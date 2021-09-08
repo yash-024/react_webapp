@@ -1,6 +1,8 @@
 import React from "react";
+import firebase from "firebase/compat";
+import db from "./firebase";
 
-export const TodoItems = ({ todo, onDelete }) => {
+export const TodoItems = ({ todo, id, onDelete }) => {
   return (
     <>
       <div className="row justify-content-center">
@@ -9,10 +11,9 @@ export const TodoItems = ({ todo, onDelete }) => {
             {/* <div>{todo.sno}</div> */}
             <div>{todo.name}</div>
             <div>{todo.desc}</div>
-
             <button
               className="btn btn-sm btn-danger"
-              onClick={() => onDelete(todo)}
+              onClick={(event) => db.collection("todos").doc(id).delete()}
             >
               Delete
             </button>

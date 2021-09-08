@@ -1,10 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
+import "./Header.css";
 
 const Header = (props) => {
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-lg">
         <div className="container">
           <a className="navbar-brand" href="#">
             {props.title}
@@ -34,8 +35,8 @@ const Header = (props) => {
               </li>
             </ul>
             <form className="d-flex">
-              <button className="btn btn-outline-success" type="submit">
-                Login
+              <button className="btn btn-light login" type="submit">
+                <i class="fa fa-sign-in-alt"></i>&nbsp; Login
               </button>
             </form>
           </div>
