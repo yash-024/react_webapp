@@ -11,7 +11,7 @@ function About() {
           <div className="container">
             <div className="row">
               <div className="col-lg-6">
-                <img src={aboutimg} className="img-fluid" alt />
+                <img src={aboutimg} className="img-fluid" alt="img-fluid" />
               </div>
               <div className="col-lg-6 pt-4 pt-lg-0">
                 <h1 className="text-justify-center"> About </h1>
@@ -31,8 +31,6 @@ function About() {
             </div>
           </div>
         </section>
-
-        <Link to="/todo">todo reditrect</Link>
       </div>
     </>
   );

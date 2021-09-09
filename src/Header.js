@@ -14,8 +14,8 @@ const Header = (props) => {
           <button
             className="navbar-toggler"
             type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent"
             aria-expanded="false"
             aria-label="Toggle navigation"
@@ -40,7 +40,7 @@ const Header = (props) => {
                 </Link>
               </li>
             </ul>
-            <form className="d-flex">
+            <form className="d-flex ml-auto">
               <button className="btn btn-light login" type="submit">
                 <i className="fa fa-sign-in-alt"></i>&nbsp; Login
               </button>
