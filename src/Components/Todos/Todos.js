@@ -4,7 +4,7 @@ import { TodoItems } from "./TodoItems";
 const Todos = (props) => {
   return (
     <>
-      <div className="container">
+      <div className="ListofTodo">
         <h3 className="text-center"> All Details </h3>
         {/* <p>
           {props.todos.map((todo) => {
@@ -19,7 +19,7 @@ const Todos = (props) => {
         {props.todos.length === 0
           ? "No Todo to Display"
           : props.todos.map((todo) => {
-              return <TodoItems todo={todo.todo} id={todo.id} key={todo.sno} />;
+              return <TodoItems todo={todo.todo} id={todo.id} key={todo.id} />;
             })}
       </div>
     </>
