@@ -13,7 +13,7 @@ function App({ props }) {
       <Header title="Todo List" />
 
       <Switch>
-        <Route path="/todo" component={HomeTodo} />
+        <Route path="/todo" exact component={HomeTodo} />
         <Route path="/about" component={About} />
         <Route path="/" component={Home} />
       </Switch>

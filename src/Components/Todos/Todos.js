@@ -1,7 +1,7 @@
 import React from "react";
 import { TodoItems } from "./TodoItems";
 
-const Todos = (props) => {
+const Todos = ({ editData, todos }) => {
   return (
     <>
       <div className="ListofTodo">
@@ -16,10 +16,17 @@ const Todos = (props) => {
             );
           })}
         </p> */}
-        {props.todos.length === 0
+        {todos.length === 0
           ? "No Todo to Display"
-          : props.todos.map((todo) => {
-              return <TodoItems todo={todo.todo} id={todo.id} key={todo.id} />;
+          : todos.map((data) => {
+              return (
+                <TodoItems
+                  todo={data.todo}
+                  id={data.id}
+                  key={data.id}
+                  editData={editData}
+                />
+              );
             })}
       </div>
     </>

@@ -27,6 +27,7 @@ function App({ props }) {
   }, []);
 
   const addTodoData = (e) => {
+    debugger;
     e.preventDefault();
     var AddNewTodo = {
       name: name,
@@ -35,8 +36,8 @@ function App({ props }) {
     };
     db.collection("todos").add(AddNewTodo);
     //setTodos([...todos, AddNewTodo]);
-    setName("");
-    setDesc("");
+    //setName("");
+    //setDesc("");
   };
 
   return (
@@ -77,7 +78,9 @@ function App({ props }) {
                     disabled={(!name, !desc)}
                     type="submit"
                     className="btn btn-primary w-100 my-3"
-                    onClick={addTodoData}
+                    onClick={() => {
+                      addTodoData;
+                    }}
                   >
                     Submit
                   </button>
