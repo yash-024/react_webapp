@@ -32,13 +32,13 @@ export const TodoItems = ({ todo, id, editData }) => {
   // };
   return (
     <>
-      <div className=" row shadow p-3 mt-3">
+      <div className=" shadow p-3 mt-3">
         {/* <div>{todo.sno}</div> */}
-        <div className="col-2">{todo.name}</div>
-        <div className="col-7">{todo.desc}</div>
+        <div className=""><b>{todo.name}</b></div>
+        <div className="">{todo.desc}</div>
 
         <button
-          className="btn btn-sm btn-success mr-2 col-1"
+          className="btn btn-sm btn-success mr-2 mt-2"
           onClick={() => {
             editData(todo, id);
           }}
@@ -46,7 +46,7 @@ export const TodoItems = ({ todo, id, editData }) => {
           Edit
         </button>
         <button
-          className="btn btn-sm btn-danger col-1"
+          className="btn btn-sm btn-danger mt-2"
           onClick={(event) => db.collection("todos").doc(id).delete()}
         >
           Delete
