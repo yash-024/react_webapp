@@ -4,10 +4,10 @@ import { db } from "../../firebase";
 export const TodoItems = ({ todo, id, editData }) => {
   return (
     <>
-      <div className="shadow p-3 mt-3">
+      <div className=" shadow p-3 mt-3">
         {/* <div>{todo.sno}</div> */}
         <div className="">
-          <h5>{todo.name}</h5>
+          <b>{todo.name}</b>
         </div>
         <div className="">{todo.desc}</div>
 
