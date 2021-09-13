@@ -1,9 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./Header.css";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const Header = (props) => {
+  const history = useHistory();
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -41,7 +42,16 @@ const Header = (props) => {
               </li>
             </ul>
             <form className="d-flex ml-auto">
-              <button className="btn btn-light login" type="submit">
+              <button
+                className="btn btn-light login "
+                onClick={() => history.push("/register")}
+              >
+                <i className="fa fa-sign-in-alt"></i> Register
+              </button>
+              <button
+                className="btn btn-light login ml-2"
+                onClick={() => history.push("/login")}
+              >
                 <i className="fa fa-sign-in-alt"></i>&nbsp; Login
               </button>
             </form>
