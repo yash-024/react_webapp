@@ -1,25 +1,28 @@
 import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
-import {
-  auth,
-  signInWithEmailAndPassword,
-  signInWithGoogle,
-} from "../firebase";
-//import { useAuthState } from "react-firebase-hooks/auth";
+import { auth, signInWithGoogle } from "../firebase";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 export default function Login() {
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
-  //const [user, loading, error] = useAuthState(auth);
   const history = useHistory();
 
-  // useEffect(() => {
-  //   if (loading) {
-  //     // maybe trigger a loading screen
-  //     return;
-  //   }
-  //   if (user) history.replace("/");
-  // }, [user, loading]);
+  const login = () => {
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, Email, Password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log("Sign in User:" + user);
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log("Sign in Error:" + error.message);
+      });
+  };
   return (
     <>
       <div className="countiner p-5">
@@ -62,7 +65,7 @@ export default function Login() {
                 disabled={(!Email, !Password)}
                 type="submit"
                 className="btn btn-primary w-100 my-3 justify-content-center"
-                onClick={() => signInWithEmailAndPassword(Email, Password)}
+                onClick={login}
               >
                 Submit
               </button>

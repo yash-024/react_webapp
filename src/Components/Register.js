@@ -7,6 +7,7 @@ import {
   registerWithEmailAndPassword,
   signInWithGoogle,
 } from "../firebase";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 export default function Register() {
   const [Name, setName] = useState("");
@@ -19,7 +20,20 @@ export default function Register() {
   const [UploadImage, setUploadImage] = useState("");
 
   const register = () => {
-    registerWithEmailAndPassword(Name, Email, Password);
+    const auth = getAuth();
+    var createUser = createUserWithEmailAndPassword(auth, Email, Password);
+    if (createUser != null) alert("User Created Sucessfully");
+    // .then((userCredential) => {
+    //   // Signed in
+    //   const user = userCredential.user;
+
+    //   // ...
+    // })
+    // .catch((error) => {
+    //   const errorCode = error.code;
+    //   const errorMessage = error.message;
+    //   // ..
+    // });
   };
 
   return (
