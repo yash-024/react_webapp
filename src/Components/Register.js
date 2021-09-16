@@ -19,7 +19,7 @@ export default function Register() {
   const [UploadImage, setUploadImage] = useState("");
 
   const register = () => {
-    registerWithEmailAndPassword(Name, Email, Password);
+    // registerWithEmailAndPassword(Name, Email, Password);
   };
 
   return (
