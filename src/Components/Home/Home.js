@@ -39,10 +39,10 @@ function Home() {
             <div className="section-title">
               <span>Team</span>
               <h2>Team</h2>
-              <p>
+              {/* <p>
                 Sit sint consectetur velit quisquam cupiditate impedit suscipit
                 alias
-              </p>
+              </p> */}
             </div>
 
             <div className="row">
@@ -140,10 +140,10 @@ function Home() {
             <div className="section-title">
               <span>Contact</span>
               <h2>Contact</h2>
-              <p>
+              {/* <p>
                 Sit sint consectetur velit quisquam cupiditate impedit suscipit
                 alias
-              </p>
+              </p> */}
             </div>
             <div className="row aos-init aos-animate" data-aos="fade-up">
               <div className="col-lg-6">

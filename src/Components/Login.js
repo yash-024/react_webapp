@@ -10,18 +10,32 @@ export default function Login() {
 
   const login = () => {
     const auth = getAuth();
-    signInWithEmailAndPassword(auth, Email, Password)
-      .then((userCredential) => {
+    var userlogin = signInWithEmailAndPassword(auth, Email, Password);
+    if (userlogin != null) {
+      alert("User login successfully");
+      userlogin.then((userCredential) => {
         // Signed in
         const user = userCredential.user;
         console.log("Sign in User:" + user);
         // ...
-      })
-      .catch((error) => {
+      });
+      userlogin.catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log("Sign in Error:" + error.message);
       });
+    }
+    // .then((userCredential) => {
+    //   // Signed in
+    //   const user = userCredential.user;
+    //   console.log("Sign in User:" + user);
+    //   // ...
+    // })
+    // .catch((error) => {
+    //   const errorCode = error.code;
+    //   const errorMessage = error.message;
+    //   console.log("Sign in Error:" + error.message);
+    // });
   };
   return (
     <>
@@ -77,7 +91,7 @@ export default function Login() {
                 Login with Google
               </button> */}
 
-              <div class="d-flex justify-content-center links">
+              <div className="d-flex justify-content-center links">
                 Don't have an account? &nbsp;<a href="/register"> Sign Up</a>
               </div>
               {/* <div class="d-flex justify-content-center">
